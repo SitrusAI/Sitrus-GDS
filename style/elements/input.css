@@ -1,0 +1,38 @@
+/* Input */
+input {
+    width: 100%;
+    min-width: var(--form-height);
+    max-width: 100%;
+    height: var(--form-height);
+    padding: 0 0 0 var(--form-padding);
+    overflow: hidden;
+    font-family: var(--form-font);
+    font-weight: var(--form-weight);
+    font-size: var(--form-size);
+    line-height: var(--form-height);
+    color: var(--form-value);
+    background: var(--form-bg);
+    border-radius: var(--form-radius);
+    cursor: text;
+    transition: var(--transition);
+
+    &:hover {
+        color: var(--form-text-hover);
+        background: var(--form-bg-hover);
+        transition: var(--transition);
+    }
+
+    &:focus {
+        transform: scale(101%);
+        background: var(--form-bg-focus);
+        transition: var(--transition);
+    }
+
+    &::placeholder {
+        color: var(--form-placeholder);
+    }
+
+    &::selection {
+        background: var(--form-selection);
+    }
+}

@@ -1,0 +1,282 @@
+.dropdown {
+    --dropdown-offset: 10px;
+    --dropdown-padding: 4px;
+    --dropdown-option-gap: 8px;
+    --dropdown-option-padding: 12px;
+    --dropdown-option-size: 1rem;
+
+    position: absolute;
+    display: none;
+    flex-flow: column nowrap;
+    width: fit-content;
+    min-width: 160px;
+    max-width: 90vw;
+    height: fit-content;
+    max-height: 90vh;
+    padding: var(--dropdown-padding);
+    z-index: var(--stack-dropdown);
+    background: var(--page);
+    border-radius: 8px;
+    box-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 3px 6px, rgba(15, 15, 15, 0.2) 0px 9px 24px;
+    transition: var(--transition);
+
+    &:popover-open {
+        display: flex;
+        opacity: 1;
+        transform: scale(1);
+        transition: var(--transition);
+
+        @starting-style {
+            transform: scale(0.9);
+            opacity: 0;
+        }
+    }
+
+    /* Mobile view modifier */
+    @media (hover:none),
+    (hover:on-demand) {
+        position: fixed;
+        top: auto;
+        left: var(--sm);
+        right: auto;
+        bottom: var(--sm);
+        width: calc(100vw - (var(--sm) * 2));
+        margin: auto;
+    }
+
+    /* Line */
+    & hr, .divider:before, .divider:after {
+        background: var(--bg2);
+    }
+
+    /* Line spacing; ignore dropdown padding */
+    & hr, .divider {
+        margin: 0 auto;
+        margin-left: calc(4px * -1);
+        width: calc(100% + 4px * 2);
+    }
+
+    /* Option group title */
+    & li.title {
+        height: fit-content;
+        padding-top: var(--dropdown-option-gap);
+        padding-bottom: 0;
+        padding-left: var(--dropdown-option-padding);
+        padding-right: calc(var(--dropdown-option-padding) + var(--dropdown-option-gap));
+        font-size: var(--dropdown-option-size);
+        line-height: 1;
+        color: var(--text6);
+        pointer-events: none;
+
+        @media (hover:none),
+        (hover:on-demand) {
+            height: fit-content;
+            padding-top: var(--lg);
+            padding-bottom: var(--sm);
+        }
+    }
+
+    /* Dropdown option */
+    & li, & a, & > button {
+        /* Inline-block supports text-overflow: ellipses */
+        display: inline-block;
+        width: 100%;
+        max-width: 100%;
+        height: calc(var(--form-height) * 0.9);
+        min-height: calc(var(--form-height) * 0.9);
+        padding-left: var(--dropdown-option-padding);
+        padding-right: calc(var(--dropdown-option-padding) + var(--dropdown-option-gap));
+        font-family: var(--form-font);
+        font-weight: 400;
+        font-size: var(--dropdown-option-size);
+        line-height: calc(var(--form-height) * 0.9);
+        text-decoration: none;
+        text-indent: 0;
+        color: var(--text3);
+        text-align: start;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        background: none;
+        border-radius: 6px;
+        cursor: var(--form-cursor);
+        user-select: none;
+        transition: var(--transition);
+
+        &:hover {
+            color: var(--text3);
+            text-decoration: none;
+            background: var(--bg2);
+            transform: none;
+            transition: var(--transition);
+
+            & span {
+                color: var(--text3);
+            }
+        }
+
+        &:active {
+            background: var(--bg3);
+            color: var(--text1);
+            transform: none;
+            transition: var(--transition);
+
+            & span {
+                color: var(--text1);
+            }
+        }
+
+        /* If the list item has children, switch to flex for their layout */
+        &:has(*) {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: flex-start;
+            align-items: center;
+            padding-right: var(--dropdown-option-padding);
+            /* Reset right-side spacing so children can take care of it  */
+            overflow: visible
+                /* For focus outlines to appear on nested elements */
+        }
+
+        /* Nested text or icons within an option */
+        & > span {
+            display: inline-block;
+            width: fit-content;
+            max-width: inherit;
+            font-size: inherit;
+            font-weight: inherit;
+            font-style: inherit;
+            line-height: inherit;
+            color: inherit;
+            text-decoration: inherit;
+            overflow: hidden;
+            white-space: inherit;
+            text-overflow: inherit;
+            cursor: var(--form-cursor);
+            user-select: inherit;
+
+            &:hover {
+                text-decoration: none;
+            }
+
+            /* Add right spacing to non-trailing text */
+            &:where(span):not(.trailing) {
+                margin-right: var(--dropdown-option-gap);
+            }
+        }
+
+        /* Icons */
+        & .iconify {
+            min-width: var(--dropdown-option-size);
+            height: var(--dropdown-option-size);
+            font-size: var(--dropdown-option-size);
+
+            /* Leading icon */
+            &:first-child:not(:only-child) {
+                margin-right: var(--xs);
+            }
+        }
+
+        /* Prevent label from inheriting gap */
+        & fieldset label {
+            gap: 0;
+        }
+
+        /* Prevent text inputs from overflowing */
+        & input:not([role="switch"]), & fieldset input:not([role="switch"]) {
+            width: inherit;
+        }
+
+        /* Trailing text or icon */
+        .trailing {
+            margin-left: auto;
+            font-size: var(--dropdown-option-size);
+            color: var(--text6);
+
+            @media (hover: none), (hover: on-demand) {
+                margin-right: var(--md);
+            }
+        }
+
+        /* Submenu button */
+        .submenu {
+            height: 100%;
+
+            .iconify {
+                margin-right: 0;
+            }
+        }
+
+        /* Interactive elements */
+        &:has(button, input, textarea, select):not(:has(.dropdown)) {
+            height: fit-content;
+            padding: var(--dropdown-padding) var(--dropdown-option-padding);
+
+            &:hover {
+                background: transparent;
+                cursor: default;
+            }
+
+            & button {
+                width: 100%;
+            }
+        }
+
+        /* Remove double padding between interactive elements */
+        &:has(button, input, textarea, select) ~ li:has(button, input, textarea, select) {
+            padding-top: 0;
+        }
+
+        /* Mobile view modifier */
+        @media (hover: none), (hover: on-demand) {
+            min-height: calc(var(--form-height) * 1.25);
+            padding: 0 calc(var(--dropdown-option-padding) * 1.5);
+
+            &:hover {
+                background: none;
+            }
+
+            &:active {
+                color: var(--primary-inverse);
+                background: none;
+            }
+        }
+    }
+}
+
+/* Reset padding from default text list with icons */
+ul.dropdown:has(.iconify), ol.dropdown:has(.iconify) {
+    padding: var(--dropdown-padding);
+
+    & li {
+        flex-flow: row nowrap;
+        padding-left: var(--dropdown-option-padding);
+
+        & .iconify {
+            margin-top: 0;
+        }
+    }
+}
+
+/* Dark mode dropdown */
+.dark .dropdown {
+    background: var(--bg3);
+
+    /* Options */
+    & li, & a, & > button {
+
+        &:hover {
+            background: var(--bg4);
+        }
+
+        &:active {
+            background: var(--bg5);
+        }
+    }
+
+    /* Lines */
+    & hr, .divider:before, .divider:after {
+        background: var(--bg5);
+    }
+
+}

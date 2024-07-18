@@ -1,0 +1,13 @@
+figure {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.5em;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+
+    /* Centre the caption */
+    & figcaption {
+        text-align: center;
+    }
+}

@@ -1,0 +1,58 @@
+input[role=switch] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+    min-width: calc(var(--form-height) * 0.65 * 2);
+    width: calc(var(--form-height) * 0.65 * 2);
+    height: calc(var(--form-height) * 0.65);
+    padding: 0;
+    box-sizing: content-box;
+    background: var(--form-bg);
+    border-radius: calc(var(--form-height) * 0.65);
+    cursor: var(--form-cursor);
+    transition: var(--transition);
+
+    /* Marker */
+    &::before {
+        content: "";
+        position: absolute;
+        top: var(--2xs);
+        left: var(--2xs);
+        width: calc(var(--form-height) * 0.65 - var(--2xs) * 2);
+        height: calc(var(--form-height) * 0.65 - var(--2xs) * 2);
+        border-radius: 50%;
+        background: var(--form-marker);
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+    }
+
+    &:hover {
+        background: var(--form-bg-hover);
+        transition: var(--transition);
+    }
+
+    &:active {
+        background: var(--form-bg-focus);
+        transition: var(--transition);
+    }
+
+    /* On */
+    &:checked {
+        background: var(--primary);
+
+        /* Marker */
+        &::before {
+            left: calc(100% - (var(--form-height) * 0.65) + var(--2xs));
+            background: white;
+        }
+
+        &:hover {
+            background: var(--primary-hover);
+        }
+
+        &:active {
+            background: var(--primary-focus);
+        }
+    }
+}

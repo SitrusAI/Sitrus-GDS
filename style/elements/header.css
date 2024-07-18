@@ -1,0 +1,33 @@
+/* Header */
+header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 var(--page-padding-x);
+    z-index: var(--stack-nav);
+
+    /* Content container */
+    & nav {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        gap: var(--md);
+        width: var(--content-width);
+        max-width: 100%;
+        margin: auto;
+        padding-top: var(--lg);
+        padding-bottom: var(--lg);
+    }
+
+    /* Links */
+    & a:not(.logo) {
+        font-weight: 400;
+        color: var(--text1);
+
+        &:hover {
+            color: var(--text5);
+            text-decoration: none;
+        }
+    }
+}

@@ -1,0 +1,39 @@
+/* Textarea Input */
+textarea {
+    width: 100%;
+    min-width: var(--form-height);
+    max-width: 100%;
+    height: var(--form-height);
+    min-height: 60px;
+    padding: var(--form-padding) calc(var(--form-padding) * 1.3);
+    overflow: hidden;
+    font-family: var(--form-font);
+    font-weight: var(--form-weight);
+    font-size: var(--form-size);
+    line-height: 1.5;
+    color: var(--form-text);
+    background: var(--form-bg);
+    border-radius: var(--form-radius);
+    cursor: text;
+    transition: var(--transition);
+
+    &:hover {
+        color: var(--form-text-hover);
+        background: var(--form-bg-hover);
+        transition: var(--transition);
+    }
+
+    &:focus {
+        transform: scale(101%);
+        background: var(--form-bg-focus);
+        transition: var(--transition);
+    }
+
+    &::placeholder {
+        color: var(--form-placeholder);
+    }
+
+    &::selection {
+        background: var(--form-selection);
+    }
+}

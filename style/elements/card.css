@@ -1,0 +1,39 @@
+.card {
+    gap: 0;
+    max-width: 100%;
+    padding: var(--lg);
+    background: var(--page);
+    border-radius: var(--card-radius);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+
+    /* Reset image */
+    & img {
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    /* Card with image */
+    &:has(> img:first-child) {
+        padding: 0;
+
+        & > div {
+            padding: var(--lg);
+        }
+    }
+}
+
+/* Dark mode card */
+.dark .card {
+    background: var(--bg2);
+}
+
+/* Remove underline for clickthrough card */
+a.card {
+    align-items: flex-start;
+    text-decoration: none !important;
+
+    &:hover {
+        transform: scale(102%);
+    }
+}

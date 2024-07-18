@@ -1,0 +1,5 @@
+article {
+   width: var(--article-content-width);
+   max-width: 100%;
+   margin: 0 auto;
+}

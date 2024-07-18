@@ -1,0 +1,41 @@
+aside {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: var(--md);
+    width: 100%;
+    max-width: 100%;
+    padding: var(--md);
+    font-family: var(--body-font);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text1);
+    border: var(--form-border-width) solid var(--bg2);
+    background: var(--bg1);
+    border-radius: var(--media-radius);
+
+    /* Remove text element margins in an article wrapper */
+    & * {
+        margin: 0;
+    }
+
+    /* Container for multiple text elements */
+    & div {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: var(--xs);
+    }
+
+    /* Paragraph text */
+    & p {
+        flex-grow: 1;
+        color: inherit;
+    }
+
+    /* Icon */
+    & .iconify {
+        min-width: 1.5rem;
+        margin-top: 2px;
+        font-size: 1.5rem;
+        color: inherit;
+    }
+}

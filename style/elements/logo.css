@@ -1,0 +1,30 @@
+/* Logo */
+.logo {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 1.3rem;
+    line-height: 1;
+    letter-spacing: -0.025rem;
+    color: var(--text1);
+    cursor: default;
+
+    /* Nested text/icon */
+    & span {
+        font-family: inherit;
+        font-weight: inherit;
+        font-style: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        letter-spacing: inherit;
+        color: inherit;
+    }
+}
+
+a:has(.logo) {
+    text-decoration: none;
+
+    &:hover .logo {
+        color: var(--primary-text);
+        cursor: var(--form-cursor);
+    }
+}

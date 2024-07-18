@@ -1,0 +1,220 @@
+/* For Alpine on page load */
+[x-cloak] {
+    display: none !important;
+}
+
+/* Additional variables */
+:root {
+    /* Shadows */
+    --shadow-sm: 0 0 2px 0 rgb(0 0 0 / 0.05);
+    --shadow: 0 0 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-md: 0 0 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 0 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 0 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --shadow-2xl: 0 0 50px -12px rgb(0 0 0 / 0.25);
+    --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+
+    /* Stacking Order */
+    --stack-basic: 10;
+    --stack-subnav: 15;
+    --stack-nav: 20;
+    --stack-toolbar: 30;
+    --stack-popover: 40;
+    --stack-dropdown: 50;
+    --stack-floating-button: 60;
+    --stack-backdrop: 70;
+    --stack-modal: 80;
+    --stack-toast: 90;
+    --stack-loading: 100;
+
+    /* Transition */
+    --transition: all var(--transition-time) cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Default / Light Colors */
+    --backdrop: rgb(0 0 0 / 20%);
+    --bg-overlay-dark: rgb(0 0 0 / 35%);
+    --bg-overlay-light: rgba(255 255 255 / 35%);
+    --bg1: var(--surface);
+    --bg2: color-mix(in oklch, var(--surface) 92%, var(--text));
+    --bg3: color-mix(in oklch, var(--surface) 79%, var(--text));
+    --bg4: color-mix(in oklch, var(--surface) 70%, var(--text));
+    --bg5: color-mix(in oklch, var(--surface) 55%, var(--text));
+    --bg-pattern: var(--bg3);
+    --text1: var(--text);
+    --text2: color-mix(in oklch, var(--surface) 2%, var(--text));
+    --text3: color-mix(in oklch, var(--surface) 8%, var(--text));
+    --text4: color-mix(in oklch, var(--surface) 15%, var(--text));
+    --text5: color-mix(in oklch, var(--surface) 34%, var(--text));
+    --text6: color-mix(in oklch, var(--surface) 55%, var(--text));
+    --contrast: var(--text1);
+    --contrast-hover: var(--text2);
+    --contrast-focus: var(--text3);
+    --contrast-inverse: var(--page);
+    --contrast-inverse-hover: var(--page);
+    --contrast-inverse-focus: var(--page);
+    --contrast-text: var(--page);
+    --divider: var(--bg3);
+    --form-bg: var(--form-surface);
+    --form-bg-hover: color-mix(in oklch, var(--form-surface) 95%, var(--form-inverse));
+    --form-bg-focus: color-mix(in oklch, var(--form-surface) 90%, var(--form-inverse));
+    --form-border: color-mix(in oklch, var(--form-surface) 80%, var(--form-inverse));
+    --form-marker: color-mix(in oklch, var(--form-surface) 60%, var(--form-inverse));
+    --form-placeholder: color-mix(in oklch, var(--form-surface) 50%, var(--form-inverse));
+    --form-selection: color-mix(in oklch, var(--form-surface) 75%, var(--form-inverse));
+    --form-text: color-mix(in oklch, var(--form-surface) 20%, var(--form-inverse));
+    --form-text-hover: color-mix(in oklch, var(--form-surface) 15%, var(--form-inverse));
+    --form-text-focus: color-mix(in oklch, var(--form-surface) 10%, var(--form-inverse));
+    --form-value: color-mix(in oklch, var(--form-surface) 5%, var(--form-inverse));
+    --form-focus-outline: color-mix(in oklch, var(--form-surface) 90%, var(--form-inverse));
+    --primary: var(--primary-light);
+    --primary-hover: color-mix(in oklch, var(--primary-light) 85%, var(--primary-dark));
+    --primary-focus: color-mix(in oklch, var(--primary-light) 74%, var(--primary-dark));
+    --primary-inverse: color-mix(in oklch, var(--primary-dark) 88%, var(--primary-light));
+    --primary-inverse-hover: color-mix(in oklch, var(--primary-dark) 96%, var(--primary-light));
+    --primary-inverse-focus: var(--primary-dark);
+    --secondary: var(--secondary-light);
+    --secondary-hover: color-mix(in oklch, var(--secondary-light) 85%, var(--secondary-dark));
+    --secondary-focus: color-mix(in oklch, var(--secondary-light) 74%, var(--secondary-dark));
+    --secondary-inverse: color-mix(in oklch, var(--secondary-dark) 88%, var(--secondary-light));
+    --secondary-inverse-hover: color-mix(in oklch, var(--secondary-dark) 96%, var(--secondary-light));
+    --secondary-inverse-focus: var(--secondary-dark);
+    --danger: var(--danger-light);
+    --danger-hover: color-mix(in oklch, var(--danger-light) 85%, var(--danger-dark));
+    --danger-focus: color-mix(in oklch, var(--danger-light) 74%, var(--danger-dark));
+    --danger-inverse: color-mix(in oklch, var(--danger-dark) 88%, var(--danger-light));
+    --danger-inverse-hover: color-mix(in oklch, var(--danger-dark) 96%, var(--danger-light));
+    --danger-inverse-focus: var(--danger-dark);
+}
+
+/* Dark theme */
+.dark {
+    --backdrop: rgb(0 0 0 / 35%);
+    --form-focus-outline: color-mix(in oklch, var(--form-surface) 50%, var(--form-inverse));
+}
+
+/* HTML */
+html {
+    width: 100vw;
+    max-width: 100vw;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+
+    /* Prevent page scrolling with open modal */
+    &:has(dialog:popover-open) {
+        overflow: hidden;
+    }
+}
+
+/* Body (page container) */
+body {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    max-width: 100vw;
+    min-height: 100vh;
+    background: var(--page);
+}
+
+/* Main */
+main {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Focus */
+a, .dropdown li:not(:has(button, input, a)), button, input, textarea, select, summary, video {
+    --form-focus-outline-width: 2px;
+    --form-focus-outline-style: solid;
+    --form-focus-outline-offset: 1px;
+
+    &:focus {
+        outline: none;
+    }
+
+    /* Accessibility styling on focus */
+    &:focus-visible {
+        outline: var(--form-focus-outline-width) solid var(--form-focus-outline);
+        outline-offset: var(--form-focus-outline-offset);
+    }
+}
+
+/* Disabled */
+[disabled], :disabled, .disabled {
+    opacity: 50%;
+    pointer-events: none;
+}
+
+/* Font smoothing (for iOS and Mac) */
+@media (-webkit-min-device-pixel-ratio: 2) {
+
+    a, blockquote, button, code, figcaption, h1, h2, h3, h4, h5, h6, kbd, li, mark, p, pre, small, span {
+        -webkit-font-smoothing: antialiased;
+        /* Chrome, Safari */
+        -moz-osx-font-smoothing: grayscale;
+        /* Firefox */
+    }
+}
+
+/* Inline icons */
+h1 > .iconify, h2 > .iconify, h3 > .iconify, h4 > .iconify, h5 > .iconify, h6 > .iconify, p > .iconify, small > .iconify, figcaption > .iconify, label > .iconify, li > .iconify, code > .iconify, kbd > .iconify, span > .iconify {
+    display: inline-block;
+    color: inherit;
+}
+
+/* Remove input browser coloring after autocomplete */
+input:-webkit-autofill, input:-webkit-autofill:focus {
+    transition: background-color 0s 600000s, color 0s 600000s;
+}
+
+/* Popover */
+[popover] {
+    display: none;
+}
+
+/* Text margins */
+h1, h2, h3, h4, h5, h6, p, small, figcaption, label, li, code, kbd, span {
+    margin: 0;
+}
+
+
+/* Customize the default animation behavior */
+
+::view-transition-group(root) {
+    animation-duration: 0.5s;
+}
+
+/* Create a custom animation */
+
+@keyframes move-out {
+    from {
+        transform: translateY(0%);
+    }
+
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes move-in {
+    from {
+        transform: translateY(100%);
+    }
+
+    to {
+        transform: translateY(0%);
+    }
+}
+
+/* Apply the custom animation to the old and new page states */
+
+::view-transition-old(root) {
+    animation: 0.4s ease-in both move-out;
+
+}
+
+::view-transition-new(root) {
+    animation: 0.4s ease-in both move-in;
+}

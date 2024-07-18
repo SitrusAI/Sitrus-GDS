@@ -1,0 +1,32 @@
+/* Footer */
+footer {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    margin-top: auto;
+    width: 100%;
+    max-width: 100%;
+    padding: var(--page-padding-x);
+
+    /* Content container */
+    & nav {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        gap: var(--md);
+        width: var(--content-width);
+        max-width: 100%;
+        margin: auto;
+    }
+
+    /* Links */
+    & a:not(.logo) {
+        font-weight: 400;
+        color: var(--text1);
+
+        &:hover {
+            color: var(--primary-text);
+            text-decoration: none;
+        }
+    }
+}

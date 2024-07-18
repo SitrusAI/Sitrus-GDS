@@ -1,0 +1,79 @@
+/* Preformatted Text (Code Block) */
+pre {
+    width: 100%;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    padding: var(--md) var(--lg);
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    line-height: 1.8;
+    color: var(--text1);
+    background: var(--bg1);
+    border: var(--form-border-width) solid var(--bg2);
+    border-radius: var(--media-radius);
+    overflow-x: auto;
+
+    & code {
+        width: 100%;
+        padding: 0;
+    }
+}
+
+/* Preformatted Text Container */
+.pre-container {
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: var(--md);
+    overflow: hidden;
+    background: var(--bg1);
+    border: var(--form-border-width) solid var(--bg2);
+    border-radius: var(--media-radius);
+
+    & pre {
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        border: none;
+        border-radius: none;
+        box-shadow: none;
+    }
+}
+
+/* Syntax Highlighting (https://github.com/lrsjng/lolight) */
+/* Words */
+.ll-nam {
+    color: #ff75b5;
+}
+
+/* Numbers */
+.ll-num {
+    color: #84ffff;
+}
+
+/* Strings */
+.ll-str {
+    color: #ba8baf;
+}
+
+/* Regular expressions */
+.ll-rex {
+    color: #84ffff;
+}
+
+/* Operators, punctation */
+.ll-pct {
+    color: #666;
+}
+
+/* Keywords */
+.ll-key {
+    color: #ff75b5;
+    font-weight: bold;
+}
+
+/* Comments */
+.ll-com {
+    color: #6f705e;
+    font-style: italic;
+}

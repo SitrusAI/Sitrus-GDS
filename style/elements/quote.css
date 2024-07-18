@@ -1,0 +1,12 @@
+/* Quote */
+blockquote {
+    width: 100%;
+    padding: 0 var(--md);
+    font-family: var(--body-font);
+    font-weight: 500;
+    font-style: italic;
+    font-size: 1.125rem;
+    color: var(--text5);
+    line-height: 1.7;
+    border-left: 4px solid var(--bg2);
+}

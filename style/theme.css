@@ -1,0 +1,66 @@
+:root {
+   /* Sizes */
+   --2xs: 2px;
+   --xs: 6px;
+   --sm: 10px;
+   --md: 16px;
+   --lg: 20px;
+   --xl: 40px;
+   --2xl: 100px;
+
+   /* Containers */
+   --content-width: 1216px;
+   --article-content-width: 768px;
+   --page-padding-x: 5vw;
+   --page-section-padding: 144px;
+
+   /* Fonts */
+   --heading-font: var(--sans);
+   --body-font: var(--sans);
+
+   /* Form Elements */
+   --form-gap: 10px;
+   --form-height: 36px;
+   --form-padding: 10px;
+   --form-radius: 8px;
+   --form-font: var(--sans);
+   --form-weight: 400;
+   --form-size: 1rem;
+   --form-border-width: 1.5px;
+   --form-cursor: pointer;
+   --form-focus-outline-width: 2px;
+   --form-focus-outline-offset: 2px;
+
+   /* Misc */
+   --card-radius: 20px;
+   --media-radius: 8px;
+   --transition-time: 0.1s;
+
+   /* Light Colors */
+   --page: #ffffff;
+   --surface: #f5f5f5;
+   --text: #0a0a0a;
+   --form-surface: #e5e5e5;
+   --form-inverse: #0a0a0a;
+   --primary-light: #85efac;
+   --primary-dark: #13522c;
+   --primary-text: #166434;
+   --secondary-light: #fddf49;
+   --secondary-dark: #723f12;
+   --secondary-text: #c78904;
+   --danger-light: #fca5a5;
+   --danger-dark: #801d1d;
+   --danger-text: #dc2626;
+}
+
+/* Dark Colors */
+.dark {
+   --page: #0a0a0a;
+   --surface: #171717;
+   --text: #fafafa;
+   --form-surface: #262626;
+   --form-inverse: #fafafa;
+   --primary-text: #85efac;
+   --secondary-text: #fdde44;
+   --danger-text: #fba6a6;
+}

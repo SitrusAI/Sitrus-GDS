@@ -1,0 +1,80 @@
+/* Modal */
+dialog {
+    display: none;
+    flex-flow: column nowrap;
+    width: 500px;
+    max-width: 100%;
+    min-height: 200px;
+    max-height: 90vh;
+    z-index: var(--stack-modal);
+    background: var(--page);
+    border-radius: var(--card-radius);
+    box-shadow: var(--shadow-xl);
+    transform: scale(0.9);
+    opacity: 0;
+    transition: opacity 0.15s, transform 0.15s, display 0.15s;
+
+    &:popover-open {
+        display: flex;
+        opacity: 1;
+        transform: scale(1);
+
+        @starting-style {
+            transform: scale(0.9);
+            opacity: 0;
+        }
+    }
+
+    &::backdrop {
+        background: var(--backdrop);
+        z-index: var(--stack-backdrop);
+    }
+
+    & header {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: var(--sm);
+        padding: var(--lg);
+        border-bottom: 1px solid var(--divider);
+    }
+
+    & header + div {
+        padding: var(--lg);
+    }
+
+    & footer {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: end;
+        align-items: center;
+        gap: var(--sm);
+        padding: var(--md) var(--lg);
+    }
+
+    /* Turn into alert prompt on mobile */
+    @media (hover:none), (hover:on-demand) {
+        width: calc(100vw - var(--sm) - var(--sm));
+        max-height: 100vh;
+        margin: auto;
+    }
+}
+
+/* Dark mode */
+.dark dialog {
+    background: var(--bg2);
+    --form-surface: var(--bg3);
+    --form-bg: var(--form-surface);
+    --form-bg-hover: color-mix(in srgb, var(--form-surface) 95%, var(--text1));
+    --form-bg-focus: color-mix(in srgb, var(--form-surface) 90%, var(--text1));
+    --form-border: color-mix(in oklch, var(--form-surface) 80%, var(--text1));
+    --form-marker: color-mix(in oklch, var(--form-surface) 60%, var(--text1));
+    --form-placeholder: color-mix(in oklch, var(--form-surface) 50%, var(--text1));
+    --form-selection: color-mix(in oklch, var(--form-surface) 75%, var(--text1));
+    --form-text: color-mix(in oklch, var(--form-surface) 20%, var(--text1));
+    --form-text-hover: color-mix(in oklch, var(--form-surface) 15%, var(--text1));
+    --form-text-focus: color-mix(in oklch, var(--form-surface) 10%, var(--text1));
+    --form-value: color-mix(in oklch, var(--form-surface) 5%, var(--text1));
+    --form-focus-outline: color-mix(in srgb, var(--form-surface) 90%, var(--text1));
+}

@@ -1,0 +1,70 @@
+/* Horizontal Line */
+hr {
+    width: 100%;
+    height: 1px;
+    background: var(--divider);
+    border: 0 none;
+}
+
+/* Apply to <div> for vertical lines and lines containing text/icon */
+.divider {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 1px;
+    margin: var(--sm) 0;
+    white-space: nowrap;
+    font-family: var(--body-font);
+    font-size: 0.875rem;
+    color: var(--text6);
+
+    /* Lines before and after text/icon */
+    &:before,
+    &:after {
+        content: "";
+        flex-grow: 1;
+        width: auto;
+        height: 1px;
+        background: var(--divider);
+    }
+
+    &:not(:empty) {
+        gap: var(--sm);
+    }
+}
+
+/* Vertical line modifier */
+.divider.vertical {
+    flex-flow: column nowrap;
+    width: fit-content;
+    height: 100%;
+    margin: 0 var(--sm);
+
+    &:before,
+    &:after {
+        content: "";
+        width: 1px;
+        height: 100%;
+    }
+
+    & .iconify {
+        min-height: 0.875rem;
+        font-size: 0.875rem;
+        color: var(--text6);
+    }
+}
+
+/* Content alignment modifiers */
+.divider.start {
+    &:before {
+        display: none;
+    }
+}
+
+.divider.end {
+    &:after {
+        display: none;
+    }
+}

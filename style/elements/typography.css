@@ -1,0 +1,209 @@
+/* Bold Text */
+b, strong {
+    color: var(--text1);
+    font-weight: bolder;
+}
+
+/* Heading 1 (Main Title) */
+h1 {
+    font-family: var(--heading-font);
+    font-weight: 700;
+    font-size: clamp(1rem, 9cqmin, 4rem);
+    line-height: 1;
+    letter-spacing: -0.025em;
+    color: var(--text1);
+    word-wrap: break-word;
+}
+
+/* Heading 2 (Section Title) */
+h2 {
+    font-family: var(--heading-font);
+    font-weight: 700;
+    font-size: clamp(1rem, 9cqmin, 2rem);
+    line-height: 1;
+    letter-spacing: -0.025em;
+    color: var(--text1);
+    word-wrap: break-word;
+}
+
+/* Heading 3 (Subsection Title) */
+h3 {
+    font-family: var(--heading-font);
+    font-weight: 700;
+    font-size: clamp(1rem, 9cqmin, 1.5rem);
+    line-height: 1.4;
+    letter-spacing: -0.025em;
+    color: var(--text1);
+}
+
+/* Heading 4 (Body Title) */
+h4 {
+    font-family: var(--heading-font);
+    font-weight: 700;
+    font-size: clamp(1rem, 9cqmin, 1.1rem);
+    line-height: 1.5;
+    color: var(--text1);
+}
+
+/* Heading 5 (Byline Title) */
+h5 {
+    font-family: var(--heading-font);
+    font-weight: 300;
+    font-size: clamp(1rem, 9cqmin, 1.75rem);
+    line-height: 1.2;
+    color: var(--text5);
+}
+
+/* Heading 6 (Lead-In Title) */
+h6 {
+    font-family: var(--heading-font);
+    font-weight: var(--600);
+    font-size: clamp(1rem, 9cqmin, 1rem);
+    line-height: 1.4;
+    text-transform: uppercase;
+    color: var(--text5);
+}
+
+/* Paragraph Text */
+p, div {
+    font-family: var(--body-font);
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.4;
+    color: var(--text5);
+}
+
+/* Small Text */
+small {
+    font-family: var(--body-font);
+    font-size: 0.875rem;
+    line-height: 1.4;
+    color: var(--text5);
+}
+
+/* Caption Text */
+figcaption {
+    font-family: var(--body-font);
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    color: var(--text6);
+}
+
+/* Label */
+label {
+    width: fit-content;
+    font-family: var(--body-font);
+    font-size: 0.9375rem;
+    line-height: 1.4;
+    color: var(--text5);
+    user-select: none;
+}
+
+/*** Link ***/
+/* Standalone link */
+a {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: var(--xs);
+    width: fit-content;
+    font-family: var(--body-font);
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--text2);
+    text-decoration: none;
+    cursor: var(--form-cursor);
+    transition: var(--transition);
+
+    &:hover {
+        color: var(--text1);
+        scale: 105%;
+        transition: var(--transition);
+    }
+
+    & p, & small, & figcaption {
+        text-decoration: none;
+    }
+}
+
+/* Inline link */
+h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a, p > a, small > a, figcaption > a, label > a, li > a, blockquote > a, pre code > a, code > a, kbd > a, span > a, mark > a {
+    display: inline;
+    font-size: inherit;
+    font-weight: bolder;
+    color: var(--text2);
+    text-decoration: underline;
+    text-decoration-color: var(--primary-text);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 5px;
+    cursor: var(--form-cursor);
+    transition: var(--transition);
+
+    &:hover {
+        color: var(--text1);
+        text-decoration-thickness: 2px;
+        transition: var(--transition);
+    }
+}
+
+figcaption > a {
+    color: var(--text5);
+    text-decoration: none;
+}
+
+/* Lists */
+ol, ul {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: var(--sm);
+    padding-left: 1ch;
+    font-family: var(--body-font);
+    font-size: 1rem;
+    line-height: 1.4;
+    color: var(--text5);
+    list-style-position: inside;
+
+    /* Has icons instead of markers */
+    &:has(.iconify) {
+        padding-left: 0;
+        list-style: none;
+    }
+
+    /* List item ch padding & indent aligns line wrapping for any font size */
+    & > li {
+        padding-left: 1.2ch;
+        text-indent: -2ch;
+
+        & > *:not(ol):not(ul):not(pre) {
+            display: inline;
+        }
+
+        /* Has icon */
+        &:has(.iconify) {
+            display: flex;
+            flex-direction: row;
+            gap: var(--sm);
+            padding-left: 0;
+            text-indent: 0;
+
+            & .iconify {
+                margin-top: 2px;
+            }
+        }
+    }
+}
+
+/* Ordered list marker color */
+ol {
+    & > li::marker {
+        color: var(--text6);
+    }
+}
+
+/* Unordered list marker color */
+ul {
+    & > li::marker {
+        color: var(--text5);
+    }
+}

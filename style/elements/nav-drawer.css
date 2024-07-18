@@ -1,0 +1,34 @@
+/* Navigation Drawer */
+.nav-drawer {
+    position: fixed;
+    left: auto;
+    right: 0;
+    gap: var(--lg);
+    width: fit-content;
+    max-width: 85vw;
+    min-height: 100vh;
+    margin: 0;
+    padding: var(--xl) var(--xl) var(--2xl) var(--xl);
+    border-radius: 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    transition: var(--transition);
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    & a:not(.logo) {
+        font-weight: bold;
+        font-size: 1.25rem;
+        line-height: 1.4;
+
+        &:hover {
+            color: var(--text5);
+        }
+    }
+
+    & figcaption:not(:first-of-type) {
+        margin-top: var(--lg);
+    }
+}

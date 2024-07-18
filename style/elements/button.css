@@ -1,0 +1,106 @@
+button, .button {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--form-gap);
+    width: fit-content;
+    min-width: var(--form-height);
+    max-width: 100%;
+    height: var(--form-height);
+    padding: 0 var(--form-padding);
+    overflow: hidden;
+    font-family: var(--form-font);
+    font-weight: 500;
+    font-size: var(--form-size);
+    line-height: var(--form-height);
+    color: var(--form-text);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background: var(--form-bg);
+    border-radius: var(--form-radius);
+    cursor: var(--form-cursor);
+    user-select: none;
+    transition: var(--transition);
+
+    &:hover {
+        transform: scale(102%);
+        color: var(--form-text-hover);
+        background: var(--form-bg-hover);
+        transition: var(--transition);
+
+        & span {
+            color: inherit;
+        }
+    }
+
+    &:active {
+        transform: scale(98%);
+        color: var(--form-text-focus);
+        background: var(--form-bg-focus);
+        transition: var(--transition);
+
+        & span {
+            color: inherit;
+        }
+    }
+
+    /* Text & icons */
+    & span {
+        display: block;
+        min-width: var(--form-height);
+        max-width: 100%;
+        font-family: var(--form-font);
+        font-weight: var(--form-weight);
+        font-size: var(--form-size);
+        line-height: var(--form-height);
+        color: inherit;
+        overflow: inherit;
+        white-space: inherit;
+        text-overflow: inherit;
+    }
+
+    /* Inline icons */
+    .iconify {
+        font-size: inherit;
+        color: inherit;
+    }
+
+    /* Standalone icon */
+    & .iconify:only-child {
+        font-size: 1.25rem;
+    }
+
+    /* Standalone icon button */
+    &:has(.iconify:only-child) {
+        padding: 0;
+    }
+
+    /* Mobile appearance */
+    @media (hover: none),
+    (hover: on-demand) {
+        min-width: calc(var(--form-height) * 1.25);
+        height: calc(var(--form-height) * 1.25);
+        min-height: calc(var(--form-height) * 1.25);
+        max-height: calc(var(--form-height) * 1.25);
+    }
+}
+
+/* Link button modifier */
+a.button {
+    min-height: var(--form-height);
+    text-decoration: none !important;
+}
+
+a.button.small {
+    min-height: calc(var(--form-height) * 0.75);
+}
+
+a.button.large {
+    min-height: calc(var(--form-height) * 1.25);
+}
+
+a.button.hug {
+    min-height: var(--form-size);
+    line-height: 0;
+}

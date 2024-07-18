@@ -1,0 +1,77 @@
+/* Form */
+form {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: start;
+    gap: var(--lg);
+    width: 100%;
+    max-width: 100%;
+
+    & label:not(.floating) {
+        margin-left: var(--xs);
+    }
+}
+
+/* Fieldset (stacked label & input in form) */
+fieldset {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: var(--xs);
+    width: 100%;
+    max-width: 100%;
+
+    & label {
+        margin-left: var(--xs);
+    }
+}
+
+/* Row modifier */
+fieldset.row {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--lg) var(--md);
+    width: 100%;
+    max-width: 100%;
+
+    & label {
+        margin-left: calc(var(--form-radius) * 0.75);
+    }
+
+    & input {
+        width: auto;
+        max-width: 100%;
+    }
+
+    /* Radio button modifier */
+    &:has(input[type="radio"]:first-of-type:first-child), &:has(input[type="checkbox"]:first-of-type:first-child) {
+        justify-content: flex-start;
+        gap: 0;
+    }
+
+    /* Radio label modifier */
+    & input[type="radio"]:first-of-type:first-child ~ label, input[type="checkbox"]:first-of-type:first-child ~ label {
+        cursor: pointer;
+    }
+}
+
+/* Error Message */
+/* Can be applied independently, but named for and auto-applied with form field validation */
+.error-msg {
+    display: block;
+    transform-origin: left;
+    margin-left: 0.5em;
+    font-family: var(--sans);
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    color: var(--text6);
+    color: var(--danger-text);
+    transition: var(--transition);
+}
+
+.error-msg[hidden] {
+    opacity: 0;
+    height: 0px;
+    transform: scale(0);
+}

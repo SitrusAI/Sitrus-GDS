@@ -1,0 +1,10 @@
+/* Section (container presets) */
+section {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    padding: var(--page-section-padding) var(--page-padding-x);
+    background-size: cover;
+}

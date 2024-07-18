@@ -1,0 +1,69 @@
+/* Radio Button */
+input[type=radio] {
+    appearance: none;
+    -webkit-appearance: none;
+    position: relative;
+    min-width: calc(var(--form-height) * 0.6);
+    width: calc(var(--form-height) * 0.6);
+    height: calc(var(--form-height) * 0.6);
+    padding: 5px;
+    background: var(--form-bg);
+    border-radius: 50%;
+    border: var(--form-border-width) solid var(--form-border);
+    cursor: var(--form-cursor);
+    transition: var(--transition);
+
+    &:hover {
+        transform: scale(102%);
+        background: var(--form-bg-hover);
+        transition: var(--transition);
+    }
+
+    &:active {
+        transform: scale(98%);
+        background: var(--form-bg-focus);
+        transition: var(--transition);
+    }
+
+    /* On */
+    &:checked {
+        background: var(--form-bg);
+        border: var(--form-border-width) solid var(--primary-inverse);
+    }
+
+    /* Notch */
+    &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 75%;
+        height: 75%;
+        background: var(--primary-inverse);
+        border-radius: 50%;
+
+        /* Notch Off */
+        opacity: 0;
+        -webkit-transform: scale(0);
+        transform: scale(0) translateX(-50%) translateY(-50%);
+        transition: var(--transition);
+    }
+
+    /* Notch On */
+    &:checked::after {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1) translateX(-50%) translateY(-50%);
+        transition: var(--transition);
+    }
+}
+
+.dark input[type=radio] {
+    &:checked {
+        border: var(--form-border-width) solid var(--primary);
+    }
+
+    &::after {
+        background: var(--primary);
+    }
+}
